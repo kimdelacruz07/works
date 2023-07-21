@@ -1,0 +1,10 @@
+c:\users\pcid1559\documents\visual studio 2013\Projects\XMLStringValidation_20230721\XMLStringValidation_20230721\bin\Release\XMLStringValidation_20230721.exe.config
+c:\users\pcid1559\documents\visual studio 2013\Projects\XMLStringValidation_20230721\XMLStringValidation_20230721\bin\Release\XMLStringValidation_20230721.exe
+c:\users\pcid1559\documents\visual studio 2013\Projects\XMLStringValidation_20230721\XMLStringValidation_20230721\bin\Release\XMLStringValidation_20230721.pdb
+c:\users\pcid1559\documents\visual studio 2013\Projects\XMLStringValidation_20230721\XMLStringValidation_20230721\obj\Release\XMLStringValidation_20230721.exe
+c:\users\pcid1559\documents\visual studio 2013\Projects\XMLStringValidation_20230721\XMLStringValidation_20230721\obj\Release\XMLStringValidation_20230721.pdb
+C:\Users\PCID1559\Documents\GitHub\works\XMLStringValidation_20230721\XMLStringValidation_20230721\bin\Release\XMLStringValidation_20230721.exe.config
+C:\Users\PCID1559\Documents\GitHub\works\XMLStringValidation_20230721\XMLStringValidation_20230721\obj\Release\XMLStringValidation_20230721.exe
+C:\Users\PCID1559\Documents\GitHub\works\XMLStringValidation_20230721\XMLStringValidation_20230721\obj\Release\XMLStringValidation_20230721.pdb
+C:\Users\PCID1559\Documents\GitHub\works\XMLStringValidation_20230721\XMLStringValidation_20230721\bin\Release\XMLStringValidation_20230721.exe
+C:\Users\PCID1559\Documents\GitHub\works\XMLStringValidation_20230721\XMLStringValidation_20230721\bin\Release\XMLStringValidation_20230721.pdb
