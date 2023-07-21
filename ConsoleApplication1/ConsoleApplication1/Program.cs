@@ -49,13 +49,19 @@ namespace ConsoleApplication1
                     if (xml[i] == '<')
                     {
                         isContinue = true;
-                        int iXMLIndex = i;
+                        int iXMLIndex = i + 1;
+
+                        if (xml[iXMLIndex] == '/')
+                        {
+                            isClosingTag = true;
+                            iXMLIndex++;
+                        }
+
                         do
                         {
                             switch (xml[iXMLIndex])
                             {
                                 case '>':
-                                    //sTag += xml[x];
                                     if (isClosingTag)
                                     {
                                         isClosingTag = false;
@@ -79,16 +85,6 @@ namespace ConsoleApplication1
                                     isContinue = false;
                                     break;
 
-                                case '<':
-                                    sTag = "";
-                                    //sTag += xml[x];
-                                    break;
-
-                                case '/':
-                                    isClosingTag = true;
-                                    //sTag += xml[x];
-                                    break;
-
                                 default:
                                     sTag += xml[iXMLIndex];
                                     break;
@@ -106,8 +102,9 @@ namespace ConsoleApplication1
 
                 return isValidXML;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.Write("\n\nERROR: "+ ex.Message + "\n");
                 return false;
             }
         }
