@@ -32,81 +32,40 @@ namespace ConsoleApplication1
 
         public static bool DetermineXml(string xml)
         {
-            bool isValidXML = false;
-            bool isContinue = false;
-            bool isClosingTag = false;
             List<string> listOpeningTag = new List<string>();
-            string sTag = "";
-            try
+
+            for (int i = 0; i < xml.Length; i++)
             {
-                if (String.IsNullOrEmpty(xml))
+                if (xml[i] == '<')
                 {
-                    return isValidXML;
-                }
+                    int iClosingBracketIndex = xml.IndexOf('>', i + 1);
 
-                for (int i = 0; i < xml.Length; i++)
-                {
-                    if (xml[i] == '<')
+                    if (iClosingBracketIndex == -1)
+                        return false;
+
+                    string sTag = xml.Substring(i + 1, iClosingBracketIndex - i - 1).Trim();
+                    i = iClosingBracketIndex;
+
+                    if (sTag.Length == 0)
+                        return false;
+
+                    if (sTag[0] == '/')
                     {
-                        isContinue = true;
-                        int iXMLIndex = i + 1;
+                        if (listOpeningTag.Count == 0)
+                            return false;
 
-                        if (xml[iXMLIndex] == '/')
-                        {
-                            isClosingTag = true;
-                            iXMLIndex++;
-                        }
-
-                        do
-                        {
-                            switch (xml[iXMLIndex])
-                            {
-                                case '>':
-                                    if (isClosingTag)
-                                    {
-                                        isClosingTag = false;
-                                        if (listOpeningTag[listOpeningTag.Count - 1] == sTag)
-                                        {
-                                            listOpeningTag.RemoveAt(listOpeningTag.Count - 1);
-                                        }
-                                        else
-                                        {
-                                            isContinue = false; //stop do while
-                                            i = xml.Length; //stop for loop
-                                            break;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        listOpeningTag.Add(sTag);
-                                    }
-                                    sTag = "";
-                                    i = iXMLIndex;
-                                    isContinue = false;
-                                    break;
-
-                                default:
-                                    sTag += xml[iXMLIndex];
-                                    break;
-                            }
-
-                            iXMLIndex++;
-                        } while (isContinue && iXMLIndex < xml.Length);
+                        string openingTag = listOpeningTag[listOpeningTag.Count - 1];
+                        if (!openingTag.Equals(sTag.Substring(1)))
+                            return false;
+                    }
+                    else
+                    {
+                        listOpeningTag.Add(sTag);
                     }
                 }
-
-                if (listOpeningTag.Count == 0)
-                {
-                    isValidXML = true;
-                }
-
-                return isValidXML;
             }
-            catch (Exception ex)
-            {
-                Console.Write("\n\nERROR: "+ ex.Message + "\n");
-                return false;
-            }
+
+            return listOpeningTag.Count == 0;
         }
     }
 }
