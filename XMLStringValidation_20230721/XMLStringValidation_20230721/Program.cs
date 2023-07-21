@@ -20,7 +20,6 @@ namespace XMLStringValidation_20230721
             string sXML5 = "<Design><Code>hello > world </Code></Design>";
             string sXML6 = "<Design><Code>hello < world </Code></Design>";
             string sXML7 = "<People age=”1”>hello world</People age=”1”>";
-            string sXML8 = "<People age=”1”>hello world</People age=”1”>";
 
 
             Console.WriteLine(String.Format("XML String 1 [{0}]: {1}", sXML1, DetermineXml(sXML1)));
